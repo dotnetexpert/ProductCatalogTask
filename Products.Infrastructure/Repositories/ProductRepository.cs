@@ -97,57 +97,22 @@ namespace Products.Infrastructure.Repositories
         {
             var data = await GetAllAsync();
 
-            //  FILTER (Dynamic - all properties)
-            if (query.Filter != null && query.Filter.Any())
+            if (query.Filter != null && query.Filter.TryGetValue("search", out var searchValue))
             {
-                foreach (var filter in query.Filter)
+                var search = searchValue?.Trim();
+
+                if (!string.IsNullOrWhiteSpace(search))
                 {
-                    var property = typeof(Product).GetProperty(filter.Key);
-
-                    if (property == null) continue;
-
                     data = data.Where(x =>
-                    {
-                        var value = property.GetValue(x);
-
-                        if (value == null) return false;
-
-                        // Type-safe handling
-                        if (property.PropertyType == typeof(string))
-                        {
-                            return value.ToString()!
-                                .Contains(filter.Value, StringComparison.OrdinalIgnoreCase);
-                        }
-
-                        if (property.PropertyType == typeof(int) || property.PropertyType == typeof(decimal))
-                        {
-                            return value.ToString() == filter.Value;
-                        }
-
-                        return value.ToString()!
-                            .Contains(filter.Value, StringComparison.OrdinalIgnoreCase);
-
-                    }).ToList();
+                        (!string.IsNullOrEmpty(x.Name) && x.Name.Contains(search, StringComparison.OrdinalIgnoreCase)) ||
+                        (!string.IsNullOrEmpty(x.Color) && x.Color.Contains(search, StringComparison.OrdinalIgnoreCase)) ||
+                        x.Price.ToString().Contains(search)
+                    ).ToList();
                 }
             }
 
-            // SORT
-            if (!string.IsNullOrEmpty(query.Sort))
-            {
-                var property = typeof(Product).GetProperty(
-                               query.Sort,
-                               BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance
-                               );
-
-                if (property != null)
-                {
-                    Func<Product, object?> keySelector = x => property.GetValue(x);
-
-                    data = query.Ascending
-                        ? data.OrderBy(keySelector).ToList()
-                        : data.OrderByDescending(keySelector).ToList();
-                }
-            }
+            // Always sort by Id DESC
+            data = data.OrderByDescending(x => x.Id).ToList();
 
             //  TOTAL COUNT
             var total = data.Count;

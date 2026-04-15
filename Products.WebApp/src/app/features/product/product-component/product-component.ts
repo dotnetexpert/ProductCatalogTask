@@ -301,6 +301,8 @@ export class ProductComponent implements OnInit, AfterViewInit, OnDestroy {
             console.log('Products.Create Response', { success: true });
             this.toast = { type: 'success', message: 'Product created' };
             this.editOpen = false;
+            this.cache = [];
+  this.cacheKey = '';
             this.loadProducts();
           },
           error: (err: any) => {
@@ -317,7 +319,6 @@ export class ProductComponent implements OnInit, AfterViewInit, OnDestroy {
     const id = Number(this.editRow.key);
 
     const cmd = new UpdateProductCommand(payload);
-    console.log('Products.Update Request', { id, ...payload });
     this.api
       .productsPUT(Number(id), cmd)
       .pipe(
@@ -328,18 +329,17 @@ export class ProductComponent implements OnInit, AfterViewInit, OnDestroy {
       )
       .subscribe({
         next: (res: unknown) => {
-          console.log('Products.Update Response', res);
           this.toast = { type: 'success', message: 'Product updated' };
           this.editOpen = false;
           this.editRow = undefined;
+          this.cache = [];
+          this.cacheKey = '';
           this.loadProducts();
         },
         error: (err: unknown) => {
-          console.error('Products.Update Error', err);
           this.toast = { type: 'error', message: this.errorMessage(err) };
         },
         complete: () => {
-          console.log('Products.Update Complete');
         },
       });
   }
@@ -357,8 +357,7 @@ export class ProductComponent implements OnInit, AfterViewInit, OnDestroy {
     body.page = request.page;
     body.pageSize = request.pageSize;
     body.sort = 'name';
-    body.ascending = true;
-    console.log(body);
+    body.ascending = false;
     body.filter = request.filter as any;
     const requestedPage = this.page;
     this.api
@@ -388,8 +387,6 @@ export class ProductComponent implements OnInit, AfterViewInit, OnDestroy {
 
           const key = JSON.stringify({
             pageSize: this.pageSize,
-            sort: request.sort ?? '',
-            asc: request.ascending ?? false,
             filter: request.filter ?? {},
           });
 
@@ -407,18 +404,14 @@ export class ProductComponent implements OnInit, AfterViewInit, OnDestroy {
 
           this.products = [...this.cache];
           this.total = total;
-          console.log('Products.GetAll Page After Response', this.page);
-          console.log('Response Total Count:', this.total);
           this.cdr.markForCheck();
         },
         error: (err: unknown) => {
-          console.error('Products.GetAll Error', err);
           this.error = this.errorMessage(err);
           this.products = [];
           this.total = 0;
         },
         complete: () => {
-          console.log('Products.GetAll Subscriber Complete');
         },
       });
   }

@@ -103,15 +103,9 @@
   },
   {
     "Id": 25,
-    "Name": "Yoga Mat Anti-Slip545",
+    "Name": "Yoga Mat Anti-Slip545678",
     "Color": "Purple",
     "Price": 799.0
-  },
-  {
-    "Id": 26,
-    "Name": "Adjustable Dumbbells Set",
-    "Color": "Black",
-    "Price": 4999.0
   },
   {
     "Id": 27,
@@ -216,12 +210,6 @@
     "Price": 199.0
   },
   {
-    "Id": 44,
-    "Name": "asadsd",
-    "Color": "dsadsad",
-    "Price": 34.0
-  },
-  {
     "Id": 45,
     "Name": "qeqweqw",
     "Color": "qw432",
@@ -256,5 +244,11 @@
     "Name": "Ram",
     "Color": "Black",
     "Price": 23.0
+  },
+  {
+    "Id": 53,
+    "Name": "Ram",
+    "Color": "Black",
+    "Price": 234.0
   }
 ]

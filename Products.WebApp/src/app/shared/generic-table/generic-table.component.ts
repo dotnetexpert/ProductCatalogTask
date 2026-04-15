@@ -35,7 +35,7 @@ export type TableColumn<T> =
   templateUrl: './generic-table.component.html',
   styleUrl: './generic-table.component.scss',
 })
-export class GenericTableComponent<T> implements OnInit, OnChanges {
+export class GenericTableComponent<T> implements OnChanges {
   @Input({ required: true }) columns: Array<TableColumn<T>> = [];
   @Input({ required: true }) data: Array<T> = [];
   @Input() loading = false;
@@ -54,11 +54,6 @@ export class GenericTableComponent<T> implements OnInit, OnChanges {
   trackByColumn = (_: number, col: TableColumn<T>) => col.id;
   trackByRow = (i: number) => i;
 
-  ngOnInit(): void {
-    console.log('Table Columns:', this.columns);
-    console.log('Table Input Data:', this.data);
-    console.log('Table Data Length:', this.data?.length);
-  }
 
   constructor(private readonly cdr: ChangeDetectorRef) {}
 
