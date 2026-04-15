@@ -30,7 +30,7 @@
     (action)="onTableAction($event)"
   />
 
-  <div class="modal" *ngIf="editOpen" (click)="closeEdit()">
+  <div class="modal" *ngIf="editOpen" >
     <div class="modal__panel" (click)="$event.stopPropagation()">
       <div class="modal__head">
         <div class="modal__title">{{ editRow ? 'Edit Product' : 'Create Product' }}</div>
