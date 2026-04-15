@@ -1,9 +1,11 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './auth/auth.guard';
+import { reverseAuthGuard } from './auth/reverse-auth.guard';
 
 export const routes: Routes = [
   {
     path: '',
+    canActivate: [reverseAuthGuard],
     loadComponent: () =>
       import('./features/login/login.component').then(m => m.LoginComponent)
   },

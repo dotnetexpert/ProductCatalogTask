@@ -5,17 +5,32 @@ import {
   HttpInterceptorFn,
   provideHttpClient,
   withInterceptors,
+  withInterceptorsFromDi,
 } from '@angular/common/http';
-import { provideRouter } from '@angular/router';
+import { provideRouter, Router } from '@angular/router';
+import { inject } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
 
 import { routes } from './app.routes';
 import { API_BASE_URL, Client } from './api/client';
 import { environment } from '../environments/environment';
 import { AuthInterceptor } from './shared/Helper/auth.interceptor';
+import { AuthService } from './auth/auth.service';
 
-const noCredentialsInterceptor: HttpInterceptorFn = (req, next) =>
-  next(req.clone({ withCredentials: false }));
+const auth401RedirectInterceptor: HttpInterceptorFn = (req, next) => {
+  const router = inject(Router);
+  const auth = inject(AuthService);
+  return next(req).pipe(
+    catchError((e: unknown) => {
+      const err = e as HttpErrorResponse;
+      if (err?.status === 401) {
+        auth.setLoggedIn(false);
+        router.navigateByUrl('');
+      }
+      return throwError(() => e);
+    }),
+  );
+};
 
 const httpErrorLoggingInterceptor: HttpInterceptorFn = (req, next) =>
   next(req).pipe(
@@ -38,7 +53,13 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
 
-    provideHttpClient(withInterceptors([noCredentialsInterceptor, httpErrorLoggingInterceptor])),
+    provideHttpClient(
+      withInterceptorsFromDi(),
+      withInterceptors([
+        auth401RedirectInterceptor,
+        httpErrorLoggingInterceptor,
+      ]),
+    ),
     provideRouter(routes),
     Client,
     { provide: API_BASE_URL, useValue: environment.apiBaseUrl },

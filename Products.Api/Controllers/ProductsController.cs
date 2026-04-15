@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Products.Api.Contracts.Common;
 using Products.Application.Features.Products.Command;
@@ -10,6 +11,7 @@ namespace Products.Api.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductsController : Base.BaseController
     {
         [HttpPost("Create")]

@@ -60,12 +60,6 @@
     "Price": 699.0
   },
   {
-    "Id": 18,
-    "Name": "Microwave Safe Lunch Box",
-    "Color": "Green",
-    "Price": 399.0
-  },
-  {
     "Id": 19,
     "Name": "Men's Casual Sneakers",
     "Color": "White",
@@ -235,20 +229,14 @@
   },
   {
     "Id": 51,
-    "Name": "Ram",
+    "Name": "Ram123",
     "Color": "Blue",
     "Price": 45.0
   },
   {
     "Id": 52,
-    "Name": "Ram",
-    "Color": "Black",
-    "Price": 23.0
-  },
-  {
-    "Id": 53,
-    "Name": "Ram",
-    "Color": "Black",
-    "Price": 234.0
+    "Name": "Ram Sharma",
+    "Color": "white",
+    "Price": 34.0
   }
 ]

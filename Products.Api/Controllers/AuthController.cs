@@ -32,10 +32,19 @@ namespace Products.Api.Controllers
 
             return Ok(true);
         }
-        [HttpPost("logout")]
-        public IActionResult Logout()
+
+        [HttpGet("me")]
+        [Authorize]
+        [Produces("application/json")]
+        public IActionResult Me()
         {
-            Response.Cookies.Delete("accessToken");
+            return new JsonResult(new { isAuthenticated = true });
+        }
+
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await JwtService.DeleteCookie("accessToken");
 
             return Ok(new { message = "Logged out successfully" });
         }

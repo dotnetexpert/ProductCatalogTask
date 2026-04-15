@@ -49,13 +49,18 @@ namespace Products.Application.Common.Services
         public Task SetCookie(string key, string value, TimeSpan duration)
         {
             var context = _httpContextAccessor.HttpContext!;
+            var forceSecureRaw = _config["Cookies:ForceSecure"];
+            var forceSecure = forceSecureRaw is null || !bool.TryParse(forceSecureRaw, out var parsed) || parsed;
+            var secure = context.Request.IsHttps || forceSecure;
 
             var cookieOptions = new CookieOptions
             {
                 HttpOnly = true,
-                Secure = true, // use false for localhost; true for production
+                Secure = secure,
                 SameSite = SameSiteMode.None,
-                Expires = DateTime.UtcNow.Add(duration),
+                Expires = key == "accessToken"
+                    ? DateTime.UtcNow.AddMinutes(15)
+                    : DateTime.UtcNow.Add(duration),
                 Path = "/"
             };
 
@@ -66,10 +71,13 @@ namespace Products.Application.Common.Services
         public Task DeleteCookie(string key)
         {
             var context = _httpContextAccessor.HttpContext!;
+            var forceSecureRaw = _config["Cookies:ForceSecure"];
+            var forceSecure = forceSecureRaw is null || !bool.TryParse(forceSecureRaw, out var parsed) || parsed;
+            var secure = context.Request.IsHttps || forceSecure;
             var cookieOptions = new CookieOptions
             {
                 HttpOnly = true,
-                Secure = true, // production
+                Secure = secure,
                 SameSite = SameSiteMode.None, // if cross-site
                 Expires = DateTime.UtcNow.AddDays(-1),
                 Path = "/"
