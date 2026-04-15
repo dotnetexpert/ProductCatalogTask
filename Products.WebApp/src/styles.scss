@@ -1,0 +1,129 @@
+:root {
+  --bg: #f3f3f9;
+  --surface: #ffffff;
+  --surface2: rgba(248, 250, 252, 0.9);
+  --text: rgba(15, 23, 42, 0.92);
+  --muted: rgba(15, 23, 42, 0.62);
+  --border: rgba(15, 23, 42, 0.12);
+  --shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
+  --shadow2: 0 10px 26px rgba(15, 23, 42, 0.12);
+  --radius: 16px;
+  --radiusSm: 6px;
+  --focus: 0 0 0 4px rgba(37, 99, 235, 0.14);
+  --primary: rgba(37, 99, 235, 0.95);
+  --primary2: rgba(99, 102, 241, 0.92);
+  --danger: rgba(239, 68, 68, 0.95);
+  --success: rgba(16, 185, 129, 0.95);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, 'Apple Color Emoji',
+    'Segoe UI Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+.btn {
+  padding: 6px 12px;
+  border-radius: var(--radiusSm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-weight: 400;
+  cursor: pointer;
+  transition: transform 90ms ease, box-shadow 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+// .btn:hover:enabled {
+//   border-color: rgba(37, 99, 235, 0.28);
+//   box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+//   transform: translateY(-1px);
+// }
+
+.btn:active:enabled {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus);
+}
+
+.btn--primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.btn--danger {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #fff;
+}
+
+.btn--ghost {
+  background: var(--surface);
+  color: rgba(15, 23, 42, 0.9);
+}
+
+.input,
+.select,
+.search__input {
+  border-radius: var(--radiusSm);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.92);
+  transition: box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.input:focus,
+.select:focus,
+.search__input:focus {
+  outline: none;
+  border-color: rgba(37, 99, 235, 0.5);
+  box-shadow: var(--focus);
+}
+
+.card,
+.modal__panel,
+.toast {
+  border-radius: var(--radius);
+}
+
+
+.edit-icon {
+    fill: #0ab39c;
+}
+
+.btn__icon {
+    fill: #f06548;
+}

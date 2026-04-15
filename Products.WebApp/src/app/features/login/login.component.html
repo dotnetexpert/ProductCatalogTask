@@ -1,0 +1,49 @@
+<div class="loginPage">
+  <div class="loginCard" role="region" aria-label="Login">
+    <div class="loginCard__head">
+      <div class="loginBrand">
+        <!-- <div class="loginBrand__mark" aria-hidden="true"></div> -->
+        <div class="loginBrand__text">
+          <div class="loginBrand__title">Products</div>
+          <div class="loginBrand__sub">Sign in to continue</div>
+        </div>
+      </div>
+    </div>
+
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+      <div class="formError" *ngIf="error">{{ error }}</div>
+
+      <label class="field">
+        <div class="field__label">Username</div>
+        <input #usernameInput class="input" type="text" autocomplete="username" formControlName="username" />
+        <div class="field__error" *ngIf="form.controls.username.touched && form.controls.username.hasError('required')">
+          Username is required
+        </div>
+      </label>
+
+      <label class="field">
+        <div class="field__label">Password</div>
+        <div class="password">
+          <input
+            class="input password__input"
+            [type]="showPassword ? 'text' : 'password'"
+            autocomplete="current-password"
+            formControlName="password"
+          />
+          <button class="iconBtn password__toggle" type="button" (click)="togglePassword()" [attr.aria-pressed]="showPassword">
+            <span class="icon" aria-hidden="true">{{ showPassword ? '🙈' : '👁' }}</span>
+          </button>
+        </div>
+        <div class="field__error" *ngIf="form.controls.password.touched && form.controls.password.hasError('required')">
+          Password is required
+        </div>
+      </label>
+
+      <button class="btn btn--primary btn--full" type="submit" [disabled]="form.invalid || submitting">
+        <span *ngIf="!submitting">Sign in</span>
+        <span *ngIf="submitting">Signing in…</span>
+      </button>
+    </form>
+  </div>
+</div>
+
