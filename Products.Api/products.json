@@ -1,0 +1,260 @@
+[
+  {
+    "Id": 8,
+    "Name": "Portable Power Bank 20000mAh",
+    "Color": "Black",
+    "Price": 1499.0
+  },
+  {
+    "Id": 9,
+    "Name": "Gaming Mechanical Keyboard",
+    "Color": "Black",
+    "Price": 3499.0
+  },
+  {
+    "Id": 10,
+    "Name": "Wireless Optical Mouse",
+    "Color": "Red",
+    "Price": 799.0
+  },
+  {
+    "Id": 11,
+    "Name": "Full HD Monitor 24 Inch",
+    "Color": "Black",
+    "Price": 8999.0
+  },
+  {
+    "Id": 12,
+    "Name": "USB-C Fast Charging Cable",
+    "Color": "White",
+    "Price": 299.0
+  },
+  {
+    "Id": 13,
+    "Name": "Noise Cancelling Earbuds",
+    "Color": "Black",
+    "Price": 4999.0
+  },
+  {
+    "Id": 14,
+    "Name": "Stainless Steel Water Bottle",
+    "Color": "Silver",
+    "Price": 499.0
+  },
+  {
+    "Id": 15,
+    "Name": "Electric Kettle 1.5L",
+    "Color": "White",
+    "Price": 1299.0
+  },
+  {
+    "Id": 16,
+    "Name": "Non-Stick Frying Pan",
+    "Color": "Black",
+    "Price": 899.0
+  },
+  {
+    "Id": 17,
+    "Name": "Digital Kitchen Weighing Scale",
+    "Color": "White",
+    "Price": 699.0
+  },
+  {
+    "Id": 18,
+    "Name": "Microwave Safe Lunch Box",
+    "Color": "Green",
+    "Price": 399.0
+  },
+  {
+    "Id": 19,
+    "Name": "Men's Casual Sneakers",
+    "Color": "White",
+    "Price": 2499.0
+  },
+  {
+    "Id": 20,
+    "Name": "Women's Running Shoes",
+    "Color": "Pink",
+    "Price": 2799.0
+  },
+  {
+    "Id": 21,
+    "Name": "Cotton T-Shirt Regular Fit",
+    "Color": "Blue",
+    "Price": 599.0
+  },
+  {
+    "Id": 22,
+    "Name": "Slim Fit Jeans",
+    "Color": "Dark Blue",
+    "Price": 1799.0
+  },
+  {
+    "Id": 23,
+    "Name": "Winter Hoodie Jacket",
+    "Color": "Black",
+    "Price": 1999.0
+  },
+  {
+    "Id": 24,
+    "Name": "Smart Fitness Band",
+    "Color": "Black",
+    "Price": 2999.0
+  },
+  {
+    "Id": 25,
+    "Name": "Yoga Mat Anti-Slip545",
+    "Color": "Purple",
+    "Price": 799.0
+  },
+  {
+    "Id": 26,
+    "Name": "Adjustable Dumbbells Set",
+    "Color": "Black",
+    "Price": 4999.0
+  },
+  {
+    "Id": 27,
+    "Name": "Skipping Rope Fitness",
+    "Color": "Red",
+    "Price": 299.0
+  },
+  {
+    "Id": 28,
+    "Name": "Protein Shaker Bottle",
+    "Color": "Blue",
+    "Price": 199.0
+  },
+  {
+    "Id": 29,
+    "Name": "Wooden Study Table",
+    "Color": "Brown",
+    "Price": 5999.0
+  },
+  {
+    "Id": 30,
+    "Name": "LED Ceiling Light Panel",
+    "Color": "White",
+    "Price": 1499.0
+  },
+  {
+    "Id": 31,
+    "Name": "Wall Mounted Bookshelf",
+    "Color": "Brown",
+    "Price": 2499.0
+  },
+  {
+    "Id": 32,
+    "Name": "Decorative Wall Clock",
+    "Color": "Black",
+    "Price": 999.0
+  },
+  {
+    "Id": 33,
+    "Name": "Indoor Plant Pot Set",
+    "Color": "Green",
+    "Price": 799.0
+  },
+  {
+    "Id": 34,
+    "Name": "Smartphone Tripod Stand",
+    "Color": "Black",
+    "Price": 699.0
+  },
+  {
+    "Id": 35,
+    "Name": "Laptop Cooling Pad",
+    "Color": "Black",
+    "Price": 1299.0
+  },
+  {
+    "Id": 36,
+    "Name": "External Hard Drive 1TB",
+    "Color": "Black",
+    "Price": 4599.0
+  },
+  {
+    "Id": 37,
+    "Name": "USB Hub Multiport Adapter",
+    "Color": "Grey",
+    "Price": 999.0
+  },
+  {
+    "Id": 38,
+    "Name": "Webcam Full HD 1080p",
+    "Color": "Black",
+    "Price": 2199.0
+  },
+  {
+    "Id": 39,
+    "Name": "Car Phone Holder Mount",
+    "Color": "Black",
+    "Price": 499.0
+  },
+  {
+    "Id": 40,
+    "Name": "Portable Car Vacuum Cleaner",
+    "Color": "Grey",
+    "Price": 1999.0
+  },
+  {
+    "Id": 41,
+    "Name": "Car Dashboard Camera",
+    "Color": "Black",
+    "Price": 3499.0
+  },
+  {
+    "Id": 42,
+    "Name": "Bike Mobile Holder",
+    "Color": "Black",
+    "Price": 399.0
+  },
+  {
+    "Id": 43,
+    "Name": "Car Air Freshener Gel",
+    "Color": "Blue",
+    "Price": 199.0
+  },
+  {
+    "Id": 44,
+    "Name": "asadsd",
+    "Color": "dsadsad",
+    "Price": 34.0
+  },
+  {
+    "Id": 45,
+    "Name": "qeqweqw",
+    "Color": "qw432",
+    "Price": 34.0
+  },
+  {
+    "Id": 47,
+    "Name": "sdaass",
+    "Color": "dasdsad",
+    "Price": 3243.0
+  },
+  {
+    "Id": 48,
+    "Name": "TestProduct",
+    "Color": "Black",
+    "Price": 4234424.0
+  },
+  {
+    "Id": 50,
+    "Name": "Ram Sharma",
+    "Color": "Red",
+    "Price": 12.0
+  },
+  {
+    "Id": 51,
+    "Name": "Ram",
+    "Color": "Blue",
+    "Price": 45.0
+  },
+  {
+    "Id": 52,
+    "Name": "Ram",
+    "Color": "Black",
+    "Price": 23.0
+  }
+]

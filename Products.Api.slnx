@@ -1,0 +1,18 @@
+<Solution>
+  <Folder Name="/Application/">
+    <Project Path="Products.Application/Products.Application.csproj" />
+  </Folder>
+  <Folder Name="/Domain/">
+    <Project Path="Products.Domain/Products.Domain.csproj" />
+  </Folder>
+  <Folder Name="/Infrastructure/">
+    <Project Path="Products.Infrastructure/Products.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/SharedKernel/">
+    <Project Path="Products.SharedKernel/Products.SharedKernel.csproj" />
+  </Folder>
+  <Folder Name="/UnitTest/">
+    <Project Path="Products.Api.Tests/Products.Api.Tests.csproj" />
+  </Folder>
+  <Project Path="Products.Api/Products.Api.csproj" />
+</Solution>
